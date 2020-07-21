@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - FLOG</title>
+        {% else %}
+        <title>Welcome to FLOG</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>FLOG: <a href='/index'>Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
