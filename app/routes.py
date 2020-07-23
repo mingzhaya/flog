@@ -1,5 +1,6 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
+from werkzeug.urls import url_parse
 from app import app
 from app.forms import LoginForm
 from app.models import User
@@ -27,7 +28,7 @@ def login():
         if not user.check_password(form.password.data):
             flash('Password does not exist')
             return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
+        login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
