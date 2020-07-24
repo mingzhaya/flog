@@ -104,7 +104,7 @@ def follow(username):
 def unfollow(username):
     form = FollowForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=username)
+        user = User.query.filter_by(username=username).first()
         if not user:
             flash('User {} not found.'.format(username))
             return redirect(url_for('index'))
