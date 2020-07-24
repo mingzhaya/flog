@@ -69,10 +69,7 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Post 1?'},
-        {'author': user, 'body': 'Post 222'}
-    ]
+    posts = Post.query.filter_by(author=user).all()
     form = FollowForm()
     return render_template('user.html', user=user, posts=posts, form=form)
 
