@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Hello, {{ current_user.username }}!</h1>
+    {% if form %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -10,8 +11,10 @@
             {% for error in form.post.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
+            <p>{{ form.submit() }}</p>
         </p>
     </form>
+    {% endif %}
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <i>{{ post.body }}</i></p></div>
     {% endfor %}
