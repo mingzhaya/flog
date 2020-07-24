@@ -8,4 +8,4 @@ class Config(object):
                             'sqlite:///' + str(basedir / 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    POSTS_PER_PAGE = 5
+    POSTS_PER_PAGE = 10
