@@ -41,3 +41,5 @@ class EditProfileForm(FlaskForm):
             if user:
                 raise ValidationError('This username already exists!')
 
+class FollowForm(FlaskForm):
+    submit = SubmitField('Submit')
